@@ -1,0 +1,6 @@
+{
+  "name": "Wedding Invitation - Hamdi & Elaa",
+  "description": "A premium luxury wedding invitation website for Hamdi & Elaa on 25 June 2027 in Tunis, Tunisia.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

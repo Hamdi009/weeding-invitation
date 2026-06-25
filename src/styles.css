@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Great+Vibes&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", "Playfair Display", ui-serif, serif;
+  --font-display: "Cinzel", "Playfair Display", serif;
+  --font-cursive: "Great Vibes", cursive;
+
+  --color-gold-50: #fbf7ec;
+  --color-gold-100: #f5edd0;
+  --color-gold-200: #eada9f;
+  --color-gold-300: #dcc26c;
+  --color-gold-400: #cfa844;
+  --color-gold-500: #b58d24;
+  --color-gold-600: #9c7419;
+  --color-gold-700: #7d5a15;
+  --color-gold-800: #5f4312;
+  --color-gold-900: #422d0d;
+
+  --color-champagne: #F4EAD4;
+  --color-ivory: #fafcfe;
+  --color-beige: #e1edf5;
+  --color-warm-cream: #f1f6fa;
+  --color-luxury-black: #111111;
+}
+
+/* Custom Wedding Luxury Animations */
+@keyframes gold-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(181, 141, 36, 0.1) 25%,
+    rgba(234, 218, 159, 0.6) 50%,
+    rgba(181, 141, 36, 0.1) 75%
+  );
+  background-size: 200% 100%;
+  animation: gold-shimmer 3s infinite linear;
+}
+
+@keyframes slow-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+}
+
+.animate-float {
+  animation: slow-float 6s ease-in-out infinite;
+}
+
+@keyframes particle-drift {
+  0% {
+    transform: translateY(110vh) translateX(0) scale(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-10vh) translateX(50px) scale(1);
+    opacity: 0;
+  }
+}
+
+.particle {
+  position: absolute;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(234,218,159,1) 0%, rgba(181,141,36,0) 70%);
+  border-radius: 50%;
+  animation: particle-drift 12s infinite linear;
+}
+
+/* Scroll Snap and Custom Scrollbars */
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #b58d24 #111111;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b58d24;
+  border-radius: 3px;
+}
+
+/* Elegant glassmorphism panels with luxury styling */
+.glass-luxury {
+  background: rgba(253, 251, 247, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(181, 141, 36, 0.15);
+  box-shadow: 0 10px 30px rgba(17, 17, 17, 0.05);
+}
+
+.glass-dark-luxury {
+  background: rgba(17, 17, 17, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(181, 141, 36, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #eada9f 0%, #b58d24 50%, #7d5a15 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.border-gold-gradient {
+  border-image: linear-gradient(135deg, #eada9f, #b58d24, #7d5a15) 1;
+}
+
+@keyframes flower-burst-p {
+  0% {
+    transform: translate(-50%, -50%) translate(0, 0) scale(0) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) translate(var(--tx), var(--ty)) scale(var(--scale)) rotate(var(--rot));
+    opacity: 0;
+  }
+}
+
+.flower-particle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  pointer-events: none;
+  z-index: 45;
+  animation: flower-burst-p var(--dur) cubic-bezier(0.1, 0.8, 0.3, 1) var(--delay) forwards;
+}

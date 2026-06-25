@@ -1,0 +1,87 @@
+<!-- Floating Cinematic Background Envelope (Landing Experience) -->
+@if (!isEnvelopeOpened()) {
+  <app-envelope (opened)="onEnvelopeOpened()" />
+} @else {
+  <!-- Main Scrollable Wedding Website (Fade in after envelope opens) -->
+  <div class="min-h-screen bg-warm-cream text-stone-800 font-serif flex flex-col relative animate-fade-in select-none">
+    
+    <!-- Hero / Main Invitation Section -->
+    <section class="relative">
+      <app-invitation-card (rsvpClicked)="scrollToRSVP()" />
+    </section>
+
+    <!-- Countdown Section -->
+    <section class="border-t border-b border-gold-300/10 shadow-sm">
+      <app-countdown />
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="py-24 px-4 bg-ivory text-center relative overflow-hidden">
+      <!-- Top Floral Separator -->
+      <div class="absolute left-1/2 -translate-x-1/2 top-4 text-gold-300/15 text-9xl pointer-events-none font-serif">❦</div>
+      
+      <div class="max-w-3xl mx-auto space-y-10">
+        <!-- Section Header -->
+        <div class="space-y-3">
+          <span class="font-display text-xs tracking-[0.3em] text-gold-600 uppercase block">Two Hearts, One Destiny</span>
+          <h2 class="font-serif italic text-4xl text-stone-800 tracking-wide">Our Love Story</h2>
+          <div class="w-16 h-[1.5px] bg-gold-400/35 mx-auto mt-4"></div>
+        </div>
+
+        <!-- Story Centered Narrative -->
+        <div class="max-w-2xl mx-auto space-y-8 text-center pt-6">
+          <div class="text-gold-500 text-3xl select-none">❦</div>
+          
+          <div class="space-y-6 text-stone-600 font-serif leading-relaxed text-base md:text-lg">
+            <p>
+              Our story began in the beautiful historic landscapes of Sbiba, Tunisia. What started as a simple crossing of paths soon blossomed into a deep friendship of shared dreams, laughter, and a vision of the future.
+            </p>
+            <p>
+              Through the historic pathways, green olive orchards, and beautiful sunset horizons of Sbiba, we found in each other a home, a sanctuary, and a best friend.
+            </p>
+            <p class="italic text-stone-800 font-semibold text-center font-cursive text-2xl md:text-3xl text-gold-600 pt-4">
+              "We decided on forever, and we cannot wait to share the first day of our next chapter with you."
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section>
+      <app-timeline />
+    </section>
+
+    <!-- Gallery Section -->
+    <section>
+      <app-gallery />
+    </section>
+
+    <!-- Location & Venue Details Section -->
+    <section>
+      <app-location />
+    </section>
+
+    <!-- RSVP Section -->
+    <section #rsvpSection class="scroll-mt-6 border-t border-gold-300/10">
+      <app-rsvp />
+    </section>
+
+    <!-- Elegant Footer -->
+    <footer class="py-16 bg-neutral-900 text-gold-100 text-center space-y-6 relative border-t border-gold-500/15">
+      <div class="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-gold-400 to-transparent"></div>
+      
+      <div class="space-y-3">
+        <h3 class="font-cursive text-5xl text-gold-400">Hamdi & Elaa</h3>
+        <p class="font-display text-[10px] tracking-[0.25em] text-gold-300/70 uppercase">Are Getting Married</p>
+        <div class="w-12 h-[1px] bg-gold-400/20 mx-auto"></div>
+        <p class="font-serif italic text-stone-400 text-xs">June 25, 2027 • Sbiba, Tunisia</p>
+      </div>
+
+      <p class="font-display text-[9px] tracking-widest text-stone-500 uppercase pt-6">
+        Designed by Abdelaoui Hamdi
+      </p>
+    </footer>
+
+  </div>
+}
